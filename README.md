@@ -1,7 +1,234 @@
-# ❄️ KHG 功能材质 · V3.7 正式版  
-### 原创 | 秽土转生 | 支持 1.13.x - 1.26.1 | 20+ 强大功能 | 兼容其它 UI
+[English Version](#english) · [中文版](#chinese)
 
 ---
+
+# <a id="english"></a>❄️ KHG Functional Resource Pack · V3.7 Official Release  
+### Original | Reborn | Supports 1.13.x – 26.1 | 10+ Powerful Features | Compatible with Other UIs
+
+<p align="center">
+  <img src="DCIM/LOGO.png" alt="KHG Logo" width="320">
+</p>
+
+<p align="center">
+  <sub>❄️ <b>KHG Functional Resource Pack</b> — Open Source · Lightweight · More Stable ❄️</sub>
+</p>
+
+---
+
+## ⚠️ Bug Report & 💡 Troubleshooting
+
+- **Found a bug?** Join the group and report directly to the developer:  
+  [![QQ Group](https://img.shields.io/badge/QQ_Group-1124227882-blue?style=flat&logo=tencent-qq)](https://jq.qq.com/?_wv=1027&k=ELOakfK3)
+
+- **Troubleshooting** — If you encounter any issues, feel free to join the official group above. The developer and enthusiastic players will be happy to help you promptly!
+
+---
+
+## 📖 Introduction
+
+**KHG Functional Resource Pack** is a powerful auxiliary tool that gives you features in normal gameplay that were previously impossible or required cheats. It is compatible with most UI beautification packs, and button appearances automatically adapt to the UI style. **Supports both mobile and PC!**
+
+### 🎯 Two Core Sections
+
+- **Button Panel**: HUD buttons, Paper Doll buttons, Toggle buttons  
+- **Display Panel**: Crosshair, Cursor, Screen Rendering, Handheld Display, Durability Display, Better Paper Doll, Game Language, Experience Display, Compass & Clock Display, etc.
+
+| Item | Details |
+|------|------|
+| 🧑‍🎨 **Developer** | Khihl |
+| 🌟 **Current Version** | **V3.7.0 Official** |
+| 🎮 **Supported Versions** | **1.13.x – 26.1** (Recommended 1.16~26.1) |
+
+> ⭐ **If you like this project, please give it a Star to support the developer!**
+
+---
+
+## 🖼️ Screenshots & Overview
+
+### 🏠 Main Panel
+
+The main operating interface, clearly divided into **Button** and **Display** functional areas. All buttons are freely draggable, and their appearance adapts to the UI style, providing a consistent experience on mobile and PC.
+
+<p align="center">
+  <img src="DCIM/主面板.png" alt="Main Panel" width="720">
+</p>
+
+> 📌 The image above shows the full main panel, covering the complete layout of button controls and display features.
+
+---
+
+### 🔧 Durability Display
+
+Displays the current durability value of equipment and tools in real time, supporting durability ranges from 1 to 10000. V3.7 introduces **color coding**, visually distinguishing durability levels with different colors for a more refined look.
+
+<p align="center">
+  <img src="DCIM/耐久显示.png" alt="Durability Display" width="720">
+</p>
+
+> 🎨 Durability colors dynamically change based on the remaining percentage, making equipment status clear at a glance.
+
+---
+
+### 📋 Feature Overview
+
+A glance at all KHG features. From HUD buttons, Paper Doll buttons, to crosshair, cursor, screen rendering, handheld display, durability display, better Paper Doll, game language, experience display, compass & clock display — over 20 features all shown.
+
+<p align="center">
+  <img src="DCIM/功能总览.png" alt="Feature Overview" width="720">
+</p>
+
+> ⚡ All features can be individually toggled, combined as needed — no bloat, no conflicts.
+
+---
+
+### 💻 PC Mode
+
+An optimized layout for desktop. Button positions and panel arrangements are adjusted for keyboard and mouse operation, delivering the same smooth functional experience as on mobile.
+
+<p align="center">
+  <img src="DCIM/电脑模式.png" alt="PC Mode" width="720">
+</p>
+
+> 🖥️ In PC Mode, button hitboxes and layout automatically adapt, providing a seamless transition between mobile and desktop.
+
+---
+
+### 🌐 English Interface
+
+V3.7 officially supports English translation. Below is a look at the English UI, meeting the needs of international players.
+
+<p align="center">
+  <img src="DCIM/中英文（英文）.png" alt="English UI" width="720">
+</p>
+
+<p align="center">
+  <em>▲ English UI</em>
+</p>
+
+> 🌍 The language switches automatically based on game settings. Use English / Chinese as you like.
+
+---
+
+## 📋 Changelog
+
+<details>
+<summary>Click to expand update details</summary>
+
+**KHG V3.7.0 Official Release**  
+1. Optimized code with AI assistance, improving performance.  
+2. Adapted for latest Minecraft versions to ensure normal usage.  
+3. Removed the auxiliary panel (frequent bugs, prone to cause player model issues, poor compatibility).  
+4. Added color coding to durability display for a more refined style.  
+5. Officially removed encryption to reduce pack size and become open source.  
+6. Added English translation, officially supporting English.
+
+**KHG V3.7.0 Beta**  
+1. Fixed unresponsive KHG buttons in newer versions.  
+2. Modified KHG button hiding logic; now hides based on device type.  
+3. Revised the user agreement.
+
+**KHG V3.6.0 Chinese New Year Special Edition**  
+1. Integrated the updates from V3.6.0 Beta.  
+2. Added a mysterious feature (???).  
+3. Adapted for desktop mode.
+
+**KHG V3.6.0 Beta**  
+1. Reorganized the layout of display features.  
+2. Removed the "Retrospective Compass" feature (extremely unstable display).  
+3. Adjusted toggle button positions; now placed on both sides of the hotbar.  
+4. Added custom drag function for GUI buttons and Paper Doll buttons, and removed the white background from both buttons.  
+5. Changed brightness rendering method to screen rendering and added more rendering features.  
+6. Improved the content of pack information.
+
+**KHG V3.5.9 Beta – Bug Fix**  
+1. Simplified crosshair-related code.  
+2. Fixed the issue where "Better Paper Doll", crosshair, and cursor could not be displayed simultaneously.
+
+**KHG V3.5.9 Beta**  
+1. Fixed GUI button disappearing after being pressed, and added drag functionality.  
+2. Fixed the "Retrospective Compass" incorrectly turning into a boat.  
+3. Adjusted button position offsets.  
+4. Initial adaptation for PC (some minor flaws remain).  
+5. Added movement status display.  
+6. Added cursor feature (eight styles available).  
+7. Updated pack info section and added PC mode usage instructions.  
+*Note: This is the last beta test version for the 3.5 Beta series.*
+
+**KHG V3.5.8 Beta**  
+Emergency fix for an error in the information panel.
+
+**KHG V3.5.7 Beta**  
+1. Added position options for "Better Paper Doll", allowing free adjustment of the paper doll's display position.  
+2. Lowered the positions of force coordinates, clock, compass, and retrospective compass so they no longer overlap the hunger bar; language and experience displays also lowered to prevent KHG buttons from overlapping them.  
+3. Moved pack info section to settings screen and added troubleshooting & user agreement.  
+4. Added an obvious easter egg.
+
+**KHG V3.5 Official Release**  
+1. Integrated all content from the Beta versions.  
+2. Strengthened anti-piracy measures.  
+3. Optimized various details to improve user experience.
+
+**KHG V3.5.6 Beta**  
+1. Adjusted positions of "Better Paper Doll" and FPS display.  
+2. Fixed the issue of incorrect shield texture display in the offhand.  
+3. Added item durability display (supports durability values from 1 to 10000; abbreviated to tens when >100, hundreds when >500, thousands when >1000).  
+4. Improved the Paper Doll button texture.  
+5. Enhanced anti-resale measures (added encryption protection against potential violations).
+
+**KHG V3.5.5 Beta**  
+1. Added rainbow dynamic crosshair.  
+2. Added sliding panel.  
+3. Crosshair now uses an overlay replacement mechanism; only one crosshair style can be displayed at a time, default is no crosshair.
+
+**KHG V3.5.4 Beta**  
+1. Re-adjusted the classification order of certain features. Display features work normally in most mod environments, but occasional texture glitches may occur due to the game itself; auxiliary features have limited stability due to Bedrock Edition API restrictions and may have errors in specific environments. Please understand.  
+2. Adjusted positions of some controls.
+
+**KHG V3.5.3 Beta**  
+1. Important fix: pressing buttons no longer interferes with in-game swipe actions.  
+2. Some control offsets now use percentage units for better adaptation to mobile devices with different resolutions.  
+3. Added "Better Paper Doll" feature.  
+4. Renamed "Handheld Item Name" feature to "Handheld Item Display" (integrating item name and icon display).  
+5. Added retrospective compass display.
+
+**KHG V3.5.2 Beta**  
+1. Fixed several issues and optimized user experience.  
+2. Added brightness rendering feature.  
+3. Completed layout for the third-level sub-panel.
+
+**KHG V3.5.1 Beta**  
+Note: Added user agreement and introduced GPL 3.0 license.  
+1. Completely refactored panel code, re-adjusted layout, and enhanced compatibility.  
+2. Added handheld item name display.  
+3. Added chunk map display.  
+4. Added five crosshair styles, freely selectable (displayed side by side in this version).  
+5. Moved pack info position to the bottom-left corner to match panel layout.
+
+**KHG V3.5.0 Beta**  
+1. Added FPS display.  
+2. Added armor display.  
+3. Added offhand display.  
+4. Added progress display feature (including speed display and eating progress).  
+5. Added experience display.
+
+</details>
+
+---
+
+## 📥 Download
+
+Simply package and download the source files.
+
+---
+
+<p align="center">
+  <sub>❄️ Open Source · Lightweight · More Stable — If you like this project, please light up a ⭐Star to support! ❄️</sub>
+</p>
+
+---
+
+# <a id="chinese"></a>❄️ KHG 功能材质 · V3.7 正式版  
+### 原创 | 秽土转生 | 支持 1.13.x - 26.1 | 10+ 强大功能 | 兼容其它 UI
 
 <p align="center">
   <img src="DCIM/LOGO.png" alt="KHG Logo" width="320">
@@ -35,7 +262,7 @@
 |------|------|
 | 🧑‍🎨 **作者** | Khihl |
 | 🌟 **当前版本** | **V3.7.0 正式版** |
-| 🎮 **支持版本** | **1.13.x – 1.26.1**（推荐 1.16~1.26.1） |
+| 🎮 **支持版本** | **1.13.x – 26.1**（推荐 1.16~26.1） |
 
 > ⭐ **如果喜欢这个项目，请给个 Star 支持作者！**
 
@@ -91,9 +318,9 @@
 
 ---
 
-### 🌐 中英文对比
+### 🌐 中文界面
 
-V3.7 正式支持英文翻译。以下为中文与英文界面的完整对比展示，满足国际玩家需求。
+V3.7 正式支持中文翻译。以下为中文界面的展示，满足国内玩家需求。
 
 <p align="center">
   <img src="DCIM/中英文（中文）.png" alt="中文界面" width="720">
@@ -101,14 +328,6 @@ V3.7 正式支持英文翻译。以下为中文与英文界面的完整对比展
 
 <p align="center">
   <em>▲ 中文界面</em>
-</p>
-
-<p align="center">
-  <img src="DCIM/中英文（英文）.png" alt="English UI" width="720">
-</p>
-
-<p align="center">
-  <em>▲ English UI</em>
 </p>
 
 > 🌍 语言根据游戏设置自动切换，中文 / English 随心使用。
