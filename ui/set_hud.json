@@ -1,0 +1,2134 @@
+{
+  "namespace": "set_hud",
+
+  //---------------------------------------------------------------------------
+  // HUD Screen Made By Khihl
+  //--------------------------------------------------------------------------- 
+  // === 光标（箭头）系统 ===
+  // 基础模板
+  "arrow_image": {
+    "type": "image",
+    "size": [ 16, 16 ],
+    "texture": "$image",
+    "follows_cursor": true
+  },
+  
+  // 带绑定参数的模板
+  "arrow_color_template@arrow_image": {
+    "$image": "$arrow_texture",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "$arrow_toggle_name",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  // 各颜色实例（仅需指定纹理和切换按钮名）
+  "arrow_white@arrow_color_template": { "$arrow_texture": "textures/KHG/arrow/arrow_white", "$arrow_toggle_name": "arrow_white_button_toggle" },
+  "arrow_black@arrow_color_template": { "$arrow_texture": "textures/KHG/arrow/arrow_black", "$arrow_toggle_name": "arrow_black_button_toggle" },
+  "arrow_blue@arrow_color_template": { "$arrow_texture": "textures/KHG/arrow/arrow_blue", "$arrow_toggle_name": "arrow_blue_button_toggle" },
+  "arrow_green@arrow_color_template": { "$arrow_texture": "textures/KHG/arrow/arrow_green", "$arrow_toggle_name": "arrow_green_button_toggle" },
+  "arrow_orange@arrow_color_template": { "$arrow_texture": "textures/KHG/arrow/arrow_orange", "$arrow_toggle_name": "arrow_orange_button_toggle" },
+  "arrow_pink@arrow_color_template": { "$arrow_texture": "textures/KHG/arrow/arrow_pink", "$arrow_toggle_name": "arrow_pink_button_toggle" },
+  "arrow_purple@arrow_color_template": { "$arrow_texture": "textures/KHG/arrow/arrow_purple", "$arrow_toggle_name": "arrow_purple_button_toggle" },
+  "arrow_red@arrow_color_template": { "$arrow_texture": "textures/KHG/arrow/arrow_red", "$arrow_toggle_name": "arrow_red_button_toggle" },
+  
+  "arrow_binding": {
+    "type": "button",
+    "always_handle_pointer": true,
+    "locked_control": "",
+    "default_control": "default",
+    "hover_control": "hover",
+    "pressed_control": "pressed",
+    "layer": 1,
+    "size": [ 16, 16 ],
+    "follows_cursor": true,
+    "controls": [
+      {
+        "arrow_white@arrow_white": {}
+      },
+      {
+        "arrow_black@arrow_black": {}
+      },
+      {
+        "arrow_blue@arrow_blue": {}
+      },
+      {
+        "arrow_green@arrow_green": {}
+      },
+      {
+        "arrow_orange@arrow_orange": {}
+      },
+      {
+        "arrow_pink@arrow_pink": {}
+      },
+      {
+        "arrow_purple@arrow_purple": {}
+      },
+      {
+        "arrow_red@arrow_red": {}
+      }
+    ]
+  },
+  
+  //耐久显示
+  "durability_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "durable_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "durability_bar_number@debug_screen.durability_bar_number": {
+          "$item_collection_name": "hotbar_items",
+          "layer": 10 
+        }         
+      }
+    ]
+  },
+  
+  //更好的纸娃娃
+  "new_hud_player_renderer_right": {
+    "type": "panel",
+    "size": [ 55, 55 ],
+    "offset": [ "-15%", -35 ],
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
+    "controls": [
+      {
+        "new_hud_player_right": {
+          "type": "custom",
+          "animation_reset_name": "screen_animation_reset",
+          "anims": [
+            "@common.screen_exit_size_animation_push",
+            "@common.screen_exit_size_animation_pop",
+            "@common.screen_entrance_size_animation_push",
+            "@common.screen_entrance_size_animation_pop"
+          ],
+          "renderer": "live_player_renderer",
+          "layer": 1
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "better_paper_doll_right_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  "new_hud_player_renderer_left": {
+    "type": "panel",
+    "size": [ 55, 55 ],
+    "offset": [ "15%", -35 ],
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "controls": [
+      {
+        "new_hud_player_left": {
+          "type": "custom",
+          "animation_reset_name": "screen_animation_reset",
+          "anims": [
+            "@common.screen_exit_size_animation_push",
+            "@common.screen_exit_size_animation_pop",
+            "@common.screen_entrance_size_animation_push",
+            "@common.screen_entrance_size_animation_pop"
+          ],
+          "renderer": "live_player_renderer",
+          "layer": 1
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "better_paper_doll_left_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  "new_hud_player_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "new_hud_player_renderer_right@new_hud_player_renderer_right": {}
+      },
+      {
+        "new_hud_player_renderer_left@new_hud_player_renderer_left": {}
+      }
+    ]
+  },
+  
+  // === 屏幕渲染（Gamma）系统 ===
+  // 基础模板
+  "gamma_image_template": {
+    "type": "image",
+    "alpha": 0.05,
+    "size": [ "100%", "100%" ],
+    "texture": "$gamma_texture",
+    "uv_size": "$gamma_uv_size",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "$gamma_toggle_name",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  // 各渲染实例（仅需指定纹理、UV 尺寸和切换按钮名）
+  "gamma_white_image@gamma_image_template": { "$gamma_texture": "textures/KHG/gamma/gamma_white", "$gamma_uv_size": [ 1, 1 ], "$gamma_toggle_name": "gamma_white_button_toggle" },
+  "gamma_default_image@gamma_image_template": { "$gamma_texture": "textures/KHG/gamma/gamma_default", "$gamma_uv_size": [ 18, 18 ], "$gamma_toggle_name": "gamma_default_button_toggle" },
+  "gamma_blue_image@gamma_image_template": { "$gamma_texture": "textures/KHG/gamma/gamma_blue", "$gamma_uv_size": [ 18, 18 ], "$gamma_toggle_name": "gamma_blue_button_toggle" },
+  "gamma_cyan_image@gamma_image_template": { "$gamma_texture": "textures/KHG/gamma/gamma_cyan", "$gamma_uv_size": [ 18, 18 ], "$gamma_toggle_name": "gamma_cyan_button_toggle" },
+  "gamma_orange_image@gamma_image_template": { "$gamma_texture": "textures/KHG/gamma/gamma_orange", "$gamma_uv_size": [ 18, 18 ], "$gamma_toggle_name": "gamma_orange_button_toggle" },
+  "gamma_red_image@gamma_image_template": { "$gamma_texture": "textures/KHG/gamma/gamma_red", "$gamma_uv_size": [ 18, 18 ], "$gamma_toggle_name": "gamma_red_button_toggle" },
+  "gamma_yellow_image@gamma_image_template": { "$gamma_texture": "textures/KHG/gamma/gamma_yellow", "$gamma_uv_size": [ 18, 18 ], "$gamma_toggle_name": "gamma_yellow_button_toggle" },
+  
+  "gamma_image_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "gamma_white_image@gamma_white_image": {}
+      },
+      {
+        "gamma_default_image@gamma_default_image": {}
+      },
+      {
+        "gamma_blue_image@gamma_blue_image": {}
+      },
+      {
+        "gamma_cyan_image@gamma_cyan_image": {}
+      },
+      {
+        "gamma_orange_image@gamma_orange_image": {}
+      },
+      {
+        "gamma_red_image@gamma_red_image": {}
+      },
+      {
+        "gamma_yellow_image@gamma_yellow_image": {}
+      }
+    ]
+  },
+        
+  //手持物品显示
+  "new_container_item_lock_overlay@common.container_item_lock_overlay": {
+    "$item_collection_name": "$hotbar_collection_name"
+  },
+  
+  "new_item_durability@common.durability_bar": {
+    "$durability_bar_required|default": true,
+    "$item_collection_name": "$hotbar_collection_name"
+  },
+  
+  "new_hud_item_icon@common.item_renderer": {
+    "$item_collection_name": "$hotbar_collection_name",
+    "property_bag": {
+      "force_update": true
+    }
+  },
+  
+  "new_cooldown_renderer": {
+    "type": "custom",
+    "renderer": "hotbar_cooldown_renderer",
+    "size": [ 20, 22 ],
+    "layer": 1,
+    "bindings": [
+      {
+        "binding_collection_name": "$hotbar_collection_name",
+        "binding_type": "collection_details"
+      }
+    ]
+  },
+  
+  "hud_item_icon_panel": {
+    "type": "panel",
+    "layer": 1,
+    "size": [ 0, 0 ],        
+    "$durability_bar_required|default": true,
+    "$stack_count_required|default": true,
+    "bindings": [
+      {
+        "binding_collection_name": "hotbar_items",
+        "binding_name": "#slot_selected",
+        "binding_name_override": "#visible",
+        "binding_type": "collection"
+      }
+    ],
+    "controls": [      
+      {
+        "hotbar_parent": {
+          "type": "panel",
+          "size": [ 18, 18 ],
+          "controls": [
+            {
+              "item_icon@new_hud_item_icon": {
+                "layer": 3,
+                "size": [ 16, 16 ]
+              }
+            },
+            {
+              "item_dura@new_item_durability": {
+                "layer": 5
+              }
+            },
+            {
+              "durability_bar_number@debug_screen.durability_bar_number": {
+                "$item_collection_name": "hotbar_items",
+                "layer": 10
+              }
+            },
+            {
+              "item_count@common.stack_count_label": {
+                "layer": 4,
+                "$item_collection_name": "$hotbar_collection_name",
+                "$stack_count_collection_name": "$hotbar_collection_name",
+                "bindings": [
+                  {
+                    "binding_name": "#inventory_stack_count",
+                    "binding_type": "collection",
+                    "binding_collection_name": "$stack_count_collection_name"
+                  },
+                  {
+                    "binding_name": "#stack_count_visible",
+                    "binding_name_override": "#visible",
+                    "binding_type": "collection",
+                    "binding_collection_name": "$stack_count_collection_name"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "cooldown_renderer@new_cooldown_renderer": { "layer": 10 } }
+    ]
+  },  
+  
+  "new_hotbar_grid": {
+    "type": "grid",    
+    "grid_item_template": "set_hud.hud_item_icon_panel",
+    "collection_name": "$hotbar_collection_name",
+    "$hotbar_collection_name|default": "hotbar_items",
+    "grid_dimension_binding": "#hotbar_grid_dimensions",    
+    "bindings": [
+      {
+        "binding_name": "#hotbar_grid_dimensions",
+        "binding_type": "global"
+      }
+    ]
+  },
+  
+  "main_hand_hud": {
+    "type": "panel",
+    "size": [ 20, 22 ],
+    "controls": [
+      {
+        "new_hotbar_grid@new_hotbar_grid": {}
+      }
+    ]
+  },
+  
+  "item_texts_label": {    
+    "type": "label",
+    "max_size": [ 200, "default" ],
+    "layer": 31,
+    "color": "$text_color",
+    "shadow": true,
+    "text": "#text",
+    "bindings": [
+      {
+        "binding_name": "#item_text",
+        "binding_name_override": "#text"
+      }
+    ]
+  },
+  
+  "name_text_label_panel": {
+    "type": "stack_panel",
+    "size": [ "100%", "default" ],
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "offset": [ 5, "-15%" ],
+    "controls": [      
+      {
+        "main_hand_hud@main_hand_hud": {}
+      },
+      {
+        "item_texts_label@item_texts_label": {}
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "name_text_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  //经验显示
+  "progress_text_label_display": {
+    "type": "label",
+    "shadow": true,
+    "text": "#level_number",
+    "color": "$experience_text_color",    
+    "bindings": [
+      {
+        "binding_name": "#level_number",
+        "binding_type": "global"
+      },
+      {
+        "binding_name": "#level_number_visible",
+        "binding_type": "global",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+  
+  "text_progress": {
+    "type": "label",
+    "text": "set_hud.experience_text"
+  },
+  
+  "progress_text_label_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", 10 ],
+    "controls": [      
+      {
+        "text_progress@text_progress": {}
+      },
+      {
+        "progress_text_label_display@progress_text_label_display": {}
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "progress_text_label_display_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  //时钟与指南针
+  "hud_compass@beacon.item_renderer": {
+    "size": [ 24, 24 ],
+    "property_bag": {
+      "#item_id_aux": 22609920
+    },
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "compass_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "hud_clock@beacon.item_renderer": {
+    "size": [ 24, 24 ],
+    "property_bag": {
+      "#item_id_aux": 22740992
+    },
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "clock_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "clock_compass_panel": {
+    "type": "stack_panel",
+    "size": [ 24 , "100%c" ],
+    "offset": [ 0, "8%" ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "controls": [
+      {
+        "hud_compass@set_hud.hud_compass": {}
+      },
+      {
+        "hud_clock@set_hud.hud_clock": {}
+      }
+    ]
+  },
+      
+  //语言
+  "language_text": {
+    "type": "label",
+    "text": "language.text",       
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "language_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  "name_text_label_panel_and_language_panel": {
+    "type": "stack_panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ "20%", "7%" ],
+    "size": [ "100%", "100%" ],
+    "$hotbar_collection_name": "hotbar_items",
+    "collection_name": "$hotbar_collection_name",
+    "controls": [      
+      {
+        "language_text@language_text": {}
+      },
+      {
+        "progress_text_label_panel@progress_text_label_panel": {}
+      }
+    ]
+  },
+  
+  // === 准星系统 ===
+  // 基础模板
+  "cross_image_template": {
+    "type": "image",
+    "size": [ 16, 16 ],
+    "texture": "$cross_texture",
+    "uv_size": "$cross_uv_size",
+    "anims": "$cross_anims",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "$cross_toggle_name",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  // 七彩准星的 flipbook 动画
+  "crossing_colorful_counter": {
+    "anim_type": "flip_book",
+    "initial_uv": [ 0, 0 ],
+    "frame_count": 64,
+    "frame_step": 64,
+    "fps": 20
+  },
+  
+  // 各准星实例（仅需指定纹理、UV 尺寸、动画和切换按钮名）
+  "hud_cross_default@cross_image_template": { "$cross_texture": "textures/KHG/cross/cross_default", "$cross_uv_size": [ 16, 16 ], "$cross_anims": [], "$cross_toggle_name": "cross_default_button_toggle" },
+  "hud_cross_colorful@cross_image_template": { "$cross_texture": "textures/KHG/cross/cross_colorful", "$cross_uv_size": [ 32, 32 ], "$cross_anims": [ "@set_hud.crossing_colorful_counter" ], "$cross_toggle_name": "cross_colorful_button_toggle" },
+  "hud_cross_1@cross_image_template": { "$cross_texture": "textures/KHG/cross/cross_1", "$cross_uv_size": [ 15, 15 ], "$cross_anims": [], "$cross_toggle_name": "cross_1_button_toggle" },
+  "hud_cross_2@cross_image_template": { "$cross_texture": "textures/KHG/cross/cross_2", "$cross_uv_size": [ 32, 32 ], "$cross_anims": [], "$cross_toggle_name": "cross_2_button_toggle" },
+  "hud_cross_3@cross_image_template": { "$cross_texture": "textures/KHG/cross/cross_3", "$cross_uv_size": [ 15, 15 ], "$cross_anims": [], "$cross_toggle_name": "cross_3_button_toggle" },
+  "hud_cross_4@cross_image_template": { "$cross_texture": "textures/KHG/cross/cross_4", "$cross_uv_size": [ 15, 15 ], "$cross_anims": [], "$cross_toggle_name": "cross_4_button_toggle" },
+  "hud_cross_5@cross_image_template": { "$cross_texture": "textures/KHG/cross/cross_5", "$cross_uv_size": [ 15, 15 ], "$cross_anims": [], "$cross_toggle_name": "cross_5_button_toggle" },
+  
+  "hud_cross_panel": {
+    "type": "panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [ 16, 16 ],
+    "controls": [
+      {
+        "hud_cross_default@hud_cross_default": {}
+      },
+      {
+        "hud_cross_colorful@hud_cross_colorful": {}
+      },
+      {
+        "hud_cross_1@hud_cross_1": {}
+      },
+      {
+        "hud_cross_2@hud_cross_2": {}
+      },
+      {
+        "hud_cross_3@hud_cross_3": {}
+      },
+      {
+        "hud_cross_4@hud_cross_4": {}
+      },
+      {
+        "hud_cross_5@hud_cross_5": {}
+      }
+    ]
+  },
+  
+  //GUI与纸娃娃按钮
+  // HUD 按钮布局模板（共享可见性/透明度绑定）
+  "hud_button_layout_template": {
+    "type": "image",
+    "texture": "$button_texture",
+    "bindings": [
+      {
+        "binding_name": "#hud_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      },
+      {
+        "binding_name": "#hud_alpha",
+        "binding_name_override": "#alpha",
+        "binding_type": "global"
+      },
+      {
+        "binding_name": "#hud_propagate_alpha",
+        "binding_name_override": "#propagateAlpha",
+        "binding_type": "global"
+      }
+    ]
+  },
+  
+  "zhi_button_layout@hud_button_layout_template": { "$button_texture": "textures/KHG/button/zhi_button" },
+    
+    "zhi_button@common.button": {
+    "controls": [
+      {
+        "default@zhi_button_layout": {}
+      },
+      {
+        "hover@zhi_button_layout": {}
+      },
+      {
+        "pressed@zhi_button_layout": {}
+      }
+    ]
+  },
+  
+  "hide_zhi_button@zhi_button": {
+    "$pressed_button_name": "button.hide_paperdoll_hud",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "offset": [ "-30%", 0 ],
+    "draggable": "both",
+    "size": [ 17, 17 ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "zhi_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  "gui_button_layout@hud_button_layout_template": { "$button_texture": "textures/KHG/button/gui_button" },
+    
+    "gui_button@common.button": {
+    "controls": [
+      {
+        "default@gui_button_layout": {}
+      },
+      {
+        "hover@gui_button_layout": {}
+      },
+      {
+        "pressed@gui_button_layout": {}
+      }
+    ]
+  },
+  
+  "hide_gui_button@gui_button": {
+    "$pressed_button_name": "button.hide_gui_all",    
+    "size": [ 17, 17 ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",    
+    "offset": [ "-35%", 0 ],
+    "draggable": "both",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "gui_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  // === 切换按钮（左右翻页） ===
+  "hotbar_switch_button_template@common.button": {
+    "size": [ "100%", "100%" ],
+    "layer": 100,
+    "$pressed_button_name": "$switch_pressed_name",
+    "controls": [
+      { "default": { "type": "image", "texture": "$switch_default_tex" } },
+      { "hover": { "type": "image", "texture": "$switch_hover_tex" } },
+      { "pressed": { "type": "image", "texture": "$switch_pressed_tex" } }
+    ]
+  },
+  
+  "switch_button_panel_template": {
+    "type": "input_panel",
+    "size": [ 20, 22 ],
+    "prevent_touch_input": true,
+    "controls": [
+      { "switch_button@$switch_button_ref": {} }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "qie_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  "left_button@hotbar_switch_button_template": {
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "$switch_pressed_name": "button.hotbar_inventory_left",
+    "$switch_default_tex": "textures/KHG/button/mq_left_button_default",
+    "$switch_hover_tex": "textures/KHG/button/mq_left_button",
+    "$switch_pressed_tex": "textures/KHG/button/mq_left_button_hover"
+  },
+  
+  "left_button_panel@switch_button_panel_template": {
+    "$switch_button_ref": "left_button"
+  },
+  
+  "right_button@hotbar_switch_button_template": {
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$switch_pressed_name": "button.hotbar_inventory_right",
+    "$switch_default_tex": "textures/KHG/button/mq_right_button_default",
+    "$switch_hover_tex": "textures/KHG/button/mq_right_button",
+    "$switch_pressed_tex": "textures/KHG/button/mq_right_button_hover"
+  },
+  
+  "right_button_panel@switch_button_panel_template": {
+    "$switch_button_ref": "right_button"
+  },
+  
+  //边框与背景
+  "panel_background": {
+    "type": "image",
+    "texture": "textures/KHG/bbk",
+    "uv_size": [ 3, 3 ],
+    "size": [ "100%", "100%" ],
+    "nineslice_size": 1,
+    "layer": 20
+  },
+  
+  //配置
+  "new_light_text_toggle": {
+    "type": "panel",
+    "$toggle_focus_enabled": false,
+    "$radio_toggle_group": true,
+    "$verbose_status|default": false,
+    "size": [ "100%", 20 ],
+    "$toggle_name": "navigation_tab",
+    "$toggle_group_default_selected": "$default_tab",
+    "controls": [
+      {
+        "toggle_text@common_toggles.light_ui_toggle": {
+          "$button_type_panel": "common_buttons.new_ui_binding_button_label",
+          "$button_offset|default": [ 0, 0 ],
+          "$button_text|default": "",
+          "$pressed_alpha|default": 1,
+          "$button_text_binding_type|default": "none",
+          "$button_text_grid_collection_name|default": "",
+          "$button_binding_condition|default": "none"
+        }
+      }
+    ]
+  },
+  
+ //主按钮
+  "set_hud_toggle@common_toggles.light_text_toggle": {     
+    "$toggle_view_binding_name": "menu_setting_toggle",   
+    "$button_text": "set_hud.main_button",
+    "size": [ "100%", "100%" ],
+    "layer": 100,
+    "bindings": [
+      {
+        "binding_name": "#hud_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      },
+      {
+        "binding_name": "#hud_alpha",
+        "binding_name_override": "#alpha",
+        "binding_type": "global"
+      },
+      {
+        "binding_name": "#hud_propagate_alpha",
+        "binding_name_override": "#propagateAlpha",
+        "binding_type": "global"
+      }
+    ]
+  },
+  
+  "set_hud_toggle_panel": {
+    "type": "input_panel",
+    "size": [ 40, 18 ],
+    "prevent_touch_input": true,
+    "controls": [ 
+      {
+        "set_hud_toggle@set_hud_toggle": {}
+      }    
+    ]
+  },
+  
+  //隐藏按钮
+  "nothing_toggle@common_toggles.light_template_toggle": {
+    "$toggle_view_binding_name": "nothing_toggle",
+    
+    "$unchecked_control": "",
+    "$checked_control": "",
+    "$unchecked_hover_control": "",
+    "$checked_hover_control": "",
+    "$unchecked_locked_control": "",
+    "$unchecked_locked_hover_control": "",
+    "$checked_locked_control": "",
+    "$checked_locked_hover_control": "",
+    
+    "$default_texture": "textures/nothing",
+    "$hover_texture": "textures/nothing",
+    "$pressed_texture": "textures/nothing",
+    "$pressed_no_hover_texture": "textures/nothing",
+    "$locked_texture": "textures/nothing",
+    "$default_chevron": "textures/nothing",
+    "$default_chevron_nohover": "textures/nothing",
+    "$default_chevron_hover": "textures/nothing",
+    
+    "$default_texture_alpha": 0,
+    "$default_checked_texture_alpha": 0,
+    "$hover_texture_alpha": 0,
+    "$hover_checked_texture_alpha": 0,
+    
+    "ignored": "(not ($is_windows_10_mobile or $is_ios or $is_android))",
+    "size": [ 62, 20 ],
+    "offset": [ 5, 5 ],
+    "layer": 100,
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "alpha": 0
+  },
+  
+  //主菜单
+  "category_buttons_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "category_buttons_toggle",
+    "$button_text": "set_hud.category_buttons",
+    "size": [ "100%", 20 ]
+  },
+  
+  "display_category_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "display_category_toggle",
+    "$button_text": "set_hud.category_display",
+    "size": [ "100%", 20 ]
+  },
+  
+ 
+  "gui_category_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "gui_category_toggle",
+    "$button_text": "set_hud.category_gui",
+    "size": [ "100%", 20 ]
+  },
+  "no_click_me_button@common_buttons.light_text_button": {
+    "sound_name": "no.click.me",
+    "sound_volume": 4.0,
+    "sound_pitch": 1.0,
+    "$button_text": "set_hud.no_click_me",
+    "size": [ "100%", 20 ]
+  },
+  
+  //快捷按钮
+  "huda_setting_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "gui_button_toggle",
+    "$button_text": "set_hud.gui_button",
+    "size": [ "100%", 20 ]
+  },
+  
+  "hudb_setting_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "zhi_button_toggle",
+    "$button_text": "set_hud.paper_doll_button",
+    "size": [ "100%", 20 ]
+  },
+  
+  "hudc_setting_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "qie_button_toggle",
+    "$button_text": "set_hud.switch_button",
+    "size": [ "100%", 20 ]
+  },
+  
+  //显示
+  "hude_setting_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "language_button_toggle",
+    "$button_text": "set_hud.game_language",
+    "size": [ "100%", 20 ]
+  },
+  
+  "hudf_setting_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "clock_button_toggle",
+    "$button_text": "set_hud.clock",
+    "size": [ "100%", 20 ]
+  },
+  
+  "hudg_setting_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "compass_button_toggle",
+    "$button_text": "set_hud.compass",
+    "size": [ "100%", 20 ]
+  },
+  
+  "thing_setting_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "thing_button_toggle",
+    "$button_text": "set_hud.game_items",
+    "size": [ "100%", 20 ]
+  },
+  
+  "hudo_setting_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "name_text_button_toggle",
+    "$button_text": "set_hud.held_item_display",
+    "size": [ "100%", 20 ]
+  }, 
+  
+  "hudm_setting_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "progress_text_label_display_button_toggle",
+    "$button_text": "set_hud.experience_display",
+    "size": [ "100%", 20 ]
+  },
+  
+  "hudp_setting_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "better_paper_doll_button_toggle",
+    "$button_text": "set_hud.better_paper_doll",
+    "size": [ "100%", 20 ]
+  },
+  
+  "better_paper_doll_null_button_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "better_paper_doll_null_button_toggle",
+    "$toggle_group_forced_index": 0,
+    "$toggle_name": "better_paper_doll_toggle",
+    "$button_text": "set_hud.none",
+    "size": [ "100%", 20 ]
+  },
+  
+  "better_paper_doll_left_button_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "better_paper_doll_left_button_toggle",
+    "$toggle_group_forced_index": 1,
+    "$toggle_name": "better_paper_doll_toggle",
+    "$button_text": "set_hud.left",
+    "size": [ "100%", 20 ]
+  },
+  
+  "better_paper_doll_right_button_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "better_paper_doll_right_button_toggle",
+    "$toggle_group_forced_index": 2,
+    "$toggle_name": "better_paper_doll_toggle",
+    "$button_text": "set_hud.right",
+    "size": [ "100%", 20 ]
+  },
+  
+  "hudr_setting_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "durable_button_toggle",
+    "$button_text": "set_hud.durability_display",
+    "size": [ "100%", 20 ]
+  },            
+  
+  //准星
+  "cross_setting_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "cross_button_toggle",
+    "$button_text": "set_hud.crosshair",
+    "size": [ "100%", 20 ]
+  },
+  
+  "cross_null_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "cross_null_button_toggle",
+    "$toggle_group_forced_index": 0,
+    "$toggle_name": "cross_toggle",
+    "$button_text": "set_hud.no_crosshair",
+    "size": [ "100%", 20 ]
+  },
+  
+   "cross_default_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "cross_default_button_toggle",
+    "$toggle_group_forced_index": 1,
+    "$toggle_name": "cross_toggle",
+    "$button_text": "set_hud.default_crosshair",
+    "size": [ "100%", 20 ]
+  },
+  
+  "cross_colorful_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "cross_colorful_button_toggle",
+    "$toggle_group_forced_index": 2,
+    "$toggle_name": "cross_toggle",
+    "$button_text": "set_hud.colorful_crosshair",
+    "size": [ "100%", 20 ]
+  },
+  
+  "cross_1_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "cross_1_button_toggle",
+    "$toggle_group_forced_index": 3,
+    "$toggle_name": "cross_toggle",
+    "$button_text": "set_hud.crosshair_style_1",
+    "size": [ "100%", 20 ]
+  },
+  
+  "cross_2_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "cross_2_button_toggle",
+    "$toggle_group_forced_index": 4,
+    "$button_text": "set_hud.crosshair_style_2",
+    "$toggle_name": "cross_toggle",
+    "size": [ "100%", 20 ]
+  },
+  
+  "cross_3_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "cross_3_button_toggle",
+    "$toggle_group_forced_index": 5,
+    "$toggle_name": "cross_toggle",
+    "$button_text": "set_hud.crosshair_style_3",
+    "size": [ "100%", 20 ]
+  },
+  
+  "cross_4_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "cross_4_button_toggle",
+    "$toggle_group_forced_index": 6,
+    "$toggle_name": "cross_toggle",
+    "$button_text": "set_hud.crosshair_style_4",
+    "size": [ "100%", 20 ]
+  },
+  
+  "cross_5_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "cross_5_button_toggle",
+    "$toggle_group_forced_index": 7,
+    "$toggle_name": "cross_toggle",
+    "$button_text": "set_hud.crosshair_style_5",
+    "size": [ "100%", 20 ]
+  },
+  
+  //光标
+  "arrow_setting_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "arrow_button_toggle",
+    "$button_text": "set_hud.cursor",
+    "size": [ "100%", 20 ]
+  },
+  
+  "arrow_null_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "arrow_null_button_toggle",
+    "$toggle_group_forced_index": 0,
+    "$toggle_name": "arrow_toggle",
+    "$button_text": "set_hud.no_cursor",
+    "size": [ "100%", 20 ]
+  },
+  
+   "arrow_white_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "arrow_white_button_toggle",
+    "$toggle_group_forced_index": 1,
+    "$toggle_name": "arrow_toggle",
+    "$button_text": "set_hud.default_cursor",
+    "size": [ "100%", 20 ]
+  },
+  
+  "arrow_black_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "arrow_black_button_toggle",
+    "$toggle_group_forced_index": 2,
+    "$toggle_name": "arrow_toggle",
+    "$button_text": "set_hud.black_cursor",
+    "size": [ "100%", 20 ]
+  },
+  
+  "arrow_blue_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "arrow_blue_button_toggle",
+    "$toggle_group_forced_index": 3,
+    "$toggle_name": "arrow_toggle",
+    "$button_text": "set_hud.blue_cursor",
+    "size": [ "100%", 20 ]
+  },
+  
+  "arrow_green_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "arrow_green_button_toggle",
+    "$toggle_group_forced_index": 4,
+    "$toggle_name": "arrow_toggle",
+    "$button_text": "set_hud.green_cursor",
+    "size": [ "100%", 20 ]
+  },
+  
+  "arrow_orange_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "arrow_orange_button_toggle",
+    "$toggle_group_forced_index": 5,
+    "$toggle_name": "arrow_toggle",
+    "$button_text": "set_hud.orange_cursor",
+    "size": [ "100%", 20 ]
+  },
+  
+  "arrow_pink_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "arrow_pink_button_toggle",
+    "$toggle_group_forced_index": 6,
+    "$toggle_name": "arrow_toggle",
+    "$button_text": "set_hud.pink_cursor",
+    "size": [ "100%", 20 ]
+  },
+  
+  "arrow_purple_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "arrow_purple_button_toggle",
+    "$toggle_group_forced_index": 7,
+    "$toggle_name": "arrow_toggle",
+    "$button_text": "set_hud.purple_cursor",
+    "size": [ "100%", 20 ]
+  },
+  
+  "arrow_red_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "arrow_red_button_toggle",
+    "$toggle_group_forced_index": 8,
+    "$toggle_name": "arrow_toggle",
+    "$button_text": "set_hud.red_cursor",
+    "size": [ "100%", 20 ]
+  },
+  
+  //亮度渲染
+  "gamma_setting_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "gamma_button_toggle",    
+    "$button_text": "set_hud.screen_render",
+    "size": [ "100%", 20 ]
+  },
+  
+  "gamma_null_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "gamma_null_button_toggle",
+    "$toggle_group_forced_index": 0,
+    "$toggle_name": "gamma_toggle",
+    "$button_text": "set_hud.no_render",
+    "size": [ "100%", 20 ]
+  },
+  
+  "gamma_white_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "gamma_white_button_toggle",
+    "$toggle_group_forced_index": 1,
+    "$toggle_name": "gamma_toggle",
+    "$button_text": "set_hud.bright_render",
+    "size": [ "100%", 20 ]
+  },
+  
+  "gamma_default_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "gamma_default_button_toggle",
+    "$toggle_group_forced_index": 2,
+    "$toggle_name": "gamma_toggle",
+    "$button_text": "set_hud.dark_render",
+    "size": [ "100%", 20 ]
+  },
+  
+  "gamma_blue_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "gamma_blue_button_toggle",
+    "$toggle_group_forced_index": 3,
+    "$toggle_name": "gamma_toggle",
+    "$button_text": "set_hud.blue_render",
+    "size": [ "100%", 20 ]
+  },
+  
+  "gamma_cyan_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "gamma_cyan_button_toggle",
+    "$toggle_group_forced_index": 4,
+    "$toggle_name": "gamma_toggle",
+    "$button_text": "set_hud.cyan_render",
+    "size": [ "100%", 20 ]
+  },
+  
+  "gamma_orange_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "gamma_orange_button_toggle",
+    "$toggle_group_forced_index": 5,
+    "$toggle_name": "gamma_toggle",
+    "$button_text": "set_hud.orange_render",
+    "size": [ "100%", 20 ]
+  },
+  
+  "gamma_red_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "gamma_red_button_toggle",
+    "$toggle_group_forced_index": 6,
+    "$toggle_name": "gamma_toggle",
+    "$button_text": "set_hud.red_render",
+    "size": [ "100%", 20 ]
+  },
+  
+  "gamma_yellow_setting_toggle@new_light_text_toggle": {
+    "$toggle_view_binding_name": "gamma_yellow_button_toggle",
+    "$toggle_group_forced_index": 7,
+    "$toggle_name": "gamma_toggle",
+    "$button_text": "set_hud.yellow_render",
+    "size": [ "100%", 20 ]
+  },
+  
+  //面板区
+  //主面板
+  "settingsd_panel": {
+    "type": "input_panel",    
+    "size": [ 62, 82 ],
+    "prevent_touch_input": true,
+    "controls": [ 
+      {
+        "background@set_hud.panel_background": {}
+      },     
+      {
+        "main_menu": {          
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            {
+              "category_buttons@category_buttons_toggle": {}
+            },
+            {
+              "display_category@display_category_toggle": {}
+            },
+            {
+              "gui_category@gui_category_toggle": {}
+            },
+            {
+              "no_click_me_button@no_click_me_button": {}
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "menu_setting_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  //副面板
+  "stack_panel": {      
+    "type": "stack_panel",
+    "size": [ 62, "100%" ],
+    "controls": [
+      {
+        "button_panel_quick@button_panel_quick": {}
+      },
+      {
+        "button_panel_display@button_panel_display": {}
+      },
+      {
+        "button_panel_gui@button_panel_gui": {}
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "menu_setting_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  //子-纸娃娃面板
+  "paper_doll_stack_panel": {      
+    "type": "input_panel",    
+    "prevent_touch_input": true,
+    "size": [ 62, 72 ],
+    "controls": [ 
+      {
+        "background@set_hud.panel_background": {}
+      },     
+      {
+        "main_menu": {          
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            {              
+              "text": {
+                "type": "label",
+                "text": "set_hud.paper_doll",
+                "color": "yellow"
+              }
+            },
+            {                    
+              "button_1@better_paper_doll_null_button_toggle": {}
+            },
+            {                    
+              "button_2@better_paper_doll_left_button_toggle": {}            
+            },
+            {
+              "button_e@better_paper_doll_right_button_toggle": {}
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "better_paper_doll_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  //子-物品面板
+  "thing_stack_panel": {      
+    "type": "input_panel",    
+    "prevent_touch_input": true,
+    "size": [ 62, 52 ],
+    "controls": [ 
+      {
+        "background@set_hud.panel_background": {}
+      },     
+      {
+        "main_menu": {          
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            {              
+              "text": {
+                "type": "label",
+                "text": "set_hud.game_items",
+                "color": "yellow"
+              }
+            },
+            {            
+              "button_1@hudf_setting_toggle": {}
+            },
+            {
+              "button_2@hudg_setting_toggle": {}
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "thing_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  //子-渲染面板
+  "gamma_stack_panel": {      
+    "type": "input_panel",    
+    "prevent_touch_input": true,
+    "size": [ 62, 172 ],
+    "controls": [ 
+      {
+        "background@set_hud.panel_background": {}
+      },     
+      {
+        "main_menu": {          
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            {              
+              "text": {
+                "type": "label",
+                "text": "set_hud.screen_render",
+                "color": "yellow"
+              }
+            },
+            {
+              "button_null@gamma_null_setting_toggle": {}
+            },
+            {                    
+              "button_1@gamma_white_setting_toggle": {}
+            },
+            {                    
+              "button_2@gamma_default_setting_toggle": {}
+            },
+            {                    
+              "button_3@gamma_blue_setting_toggle": {}
+            },
+            {                    
+              "button_4@gamma_cyan_setting_toggle": {}
+            },
+            {                    
+              "button_5@gamma_orange_setting_toggle": {}
+            },
+            {                    
+              "button_6@gamma_red_setting_toggle": {}
+            },
+            {                    
+              "button_7@gamma_yellow_setting_toggle": {}
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "gamma_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  //子-准星面板  
+  "cross_stack_panel": {      
+    "type": "input_panel",    
+    "prevent_touch_input": true,
+    "size": [ 62, 172 ],
+    "controls": [ 
+      {
+        "background@set_hud.panel_background": {}
+      },     
+      {
+        "main_menu": {          
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "$default_selector_toggle_index": 0,
+          "controls": [
+            {              
+              "text": {
+                "type": "label",
+                "text": "set_hud.crosshair",
+                "color": "yellow"
+              }
+            },
+            {
+              "null_button@cross_null_setting_toggle": {}
+            },
+            {                    
+              "button_1@cross_default_setting_toggle": {}
+            },
+            {
+              "button_1_2@cross_colorful_setting_toggle": {}
+            },
+            {                    
+              "button_2@cross_1_setting_toggle": {}
+            },
+            {                    
+              "button_3@cross_2_setting_toggle": {}
+            },
+            {
+              "button4@cross_3_setting_toggle": {}
+            },
+            {
+              "button5@cross_4_setting_toggle": {}
+            },
+            {
+              "button6@cross_5_setting_toggle": {}
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "cross_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  //子-光标面板  
+  "arrow_stack_panel": {      
+    "type": "input_panel",    
+    "prevent_touch_input": true,
+    "size": [ 62, 192 ],
+    "controls": [ 
+      {
+        "background@set_hud.panel_background": {}
+      },     
+      {
+        "main_menu": {          
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "$default_selector_toggle_index": 0,
+          "controls": [
+            {              
+              "text": {
+                "type": "label",
+                "text": "set_hud.cursor",
+                "color": "yellow"
+              }
+            },
+            {
+              "null_button@arrow_null_setting_toggle": {}
+            },
+            {                    
+              "button_1@arrow_white_setting_toggle": {}
+            },
+            {
+              "button_1_2@arrow_black_setting_toggle": {}
+            },
+            {                    
+              "button_2@arrow_blue_setting_toggle": {}
+            },
+            {                    
+              "button_3@arrow_green_setting_toggle": {}
+            },
+            {
+              "button4@arrow_orange_setting_toggle": {}
+            },
+            {
+              "button5@arrow_pink_setting_toggle": {}
+            },
+            {
+              "button6@arrow_purple_setting_toggle": {}
+            },
+            {
+              "button7@arrow_red_setting_toggle": {}
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "arrow_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },  
+  
+  "visible_panel": {
+    "type": "stack_panel", 
+    "size": [ 62, "100%" ],   
+    "controls": [
+      {
+        "cross_stack_panel@cross_stack_panel": {}
+      },
+      {
+        "arrow_stack_panel@arrow_stack_panel": {}
+      },
+      {
+        "gamma_stack_panel@gamma_stack_panel": {}
+      },
+      {
+        "paper_doll_stack_panel@paper_doll_stack_panel": {}
+      },
+      {
+        "thing_stack_panel@thing_stack_panel": {}
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "display_category_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  //主副排列面板
+  "array_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", "100%" ],
+    "controls": [      
+      {
+        "settingsd_panel@set_hud.settingsd_panel": {}
+      },
+      {
+        "spacer_1": {
+          "type": "panel",
+          "size": [ 2, 1 ]
+        }
+      },
+      {
+        "stack_panel@stack_panel": {}
+      },
+      {
+        "spacer_2": {
+          "type": "panel",
+          "size": [ 2, 1 ]
+        }
+      },
+      {
+        "visible_panel@visible_panel": {}
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "menu_setting_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  //开启按钮与主副排列面板
+  "array_panel_and_button": {
+   "type": "stack_panel",
+    "size": [ "100%", "100%" ],
+    "offset": [ "30%", 0 ],
+    "controls": [      
+      {
+        "set_hud_toggle_panel@set_hud_toggle_panel": {}
+      },
+      {
+        "array_panel@array_panel": {}
+      }
+    ]
+  },
+  
+  "mobile_array_panel@array_panel_and_button": {
+    "ignored": "(not ($is_windows_10_mobile or $is_ios or $is_android))"
+  },
+  
+  "not_mobile_array_panel@array_panel_and_button": {
+    "ignored": "($is_windows_10_mobile or $is_ios or $is_android)",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "nothing_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  //按钮面板
+  "button_panel_quick": {
+    "type": "input_panel",
+    "size": [ 62, 72 ],    
+    "prevent_touch_input": true,
+    "controls": [ 
+      {
+        "background@set_hud.panel_background": {}
+      },     
+      {
+        "button_menu": {          
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [            
+            {              
+              "text": {
+                "type": "label",
+                "text": "set_hud.quick_buttons",
+                "color": "yellow"
+              }
+            },
+            {                    
+              "button_1@huda_setting_toggle": {}
+            },
+            {                    
+              "button_2@hudb_setting_toggle": {}
+            },
+            {
+              "button_3@hudc_setting_toggle": {}
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "category_buttons_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  //显示面板  
+  "button_display_menu": {          
+    "size": [ "100%", "100%c" ],
+    "type": "stack_panel",
+    "controls": [            
+      {              
+        "text": {
+          "type": "label",
+          "text": "set_hud.display",
+          "color": "yellow"
+        }
+      },
+      {                    
+        "button_1@cross_setting_toggle": {}
+      },
+      {
+        "button_2@arrow_setting_toggle": {}
+      },
+      {
+        "button_3@gamma_setting_toggle": {}
+      },
+      {
+        "button_4@thing_setting_toggle": {}
+      },
+      {
+        "button_5@hudm_setting_toggle": {}
+      },
+      {                    
+        "button_6@hude_setting_toggle": {}
+      },
+      {
+        "button_7@hudr_setting_toggle": {}
+      },
+      {                    
+        "button_8@hudo_setting_toggle": {}
+      },
+      {
+        "button_9@hudp_setting_toggle": {}
+      }                        
+    ]
+  },      
+  
+  "button_panel_display": {
+    "type": "input_panel",
+    "size": [ 62, 112 ],    
+    "prevent_touch_input": true,
+    "controls": [ 
+      {
+        "background@set_hud.panel_background": {}
+      },
+      {
+        "scroll@common.scrolling_panel": {
+          "$show_background": false,
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "$scrolling_content": "set_hud.button_display_menu"
+        }
+      }      
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "display_category_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  //子-GUI面板
+  "button_panel_gui": {
+    "type": "input_panel",
+    "size": [ 62, 52 ],
+    "prevent_touch_input": true,
+    "controls": [
+      {
+        "background@set_hud.panel_background": {}
+      },
+      {
+        "main_menu": {
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            {
+              "text": {
+                "type": "label",
+                "text": "set_hud.category_gui",
+                "color": "yellow"
+              }
+            },
+            {
+              "button_1@coming_soon_toggle": {}
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "gui_category_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "coming_soon_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "coming_soon_toggle",
+    "$button_text": "set_hud.coming_soon",
+    "size": [ "100%", 20 ]
+  },
+
+  //信息
+  "info_button@settings_common.section_toggle_base": {
+    "$toggle_view_binding_name": "info_button_toggle",
+    "$glyph_texture": "textures/KHG/info_icon",
+    "$glyph_color_texture": "textures/KHG/info_icon",
+    "$glyph_size": [ 21, 32 ],
+    "$button_text": "set_hud.pack_info",
+    "$toggle_property_bag": {
+      "#panel_title": "set_hud.info"
+    }
+  },
+  
+  "info_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "info_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "paragraph_1@how_to_play_common.paragraph": {
+          "$text": "set_hud.welcome"
+        }
+      },
+      {
+        "paragraph_2@how_to_play_common.paragraph": {
+          "$text": "set_hud.info_details"
+        }
+      },
+      {
+        "paragraph_3@how_to_play_common.paragraph": {
+          "$text": "set_hud.please_read"
+        }
+      },
+      { "padding_1@how_to_play_common.padding": {} },
+      {
+        "header_1@how_to_play_common.header": {
+          "$text": "set_hud.introduction"
+        }      
+      },
+      {
+        "paragraph_4@how_to_play_common.paragraph": {
+          "$text": "set_hud.author"
+        }
+      },
+      {
+        "paragraph_5@how_to_play_common.paragraph": {
+          "$text": "set_hud.pack_version"
+        }
+      },
+      {
+        "paragraph_6@how_to_play_common.paragraph": {
+          "$text": "set_hud.platform"
+        }
+      },
+      {
+        "paragraph_7@how_to_play_common.paragraph": {
+          "$text": "set_hud.intro_video"
+        }
+      },
+      {
+        "paragraph_8@how_to_play_common.paragraph": {
+          "$text": "set_hud.free_pack"
+        }
+      },
+      {
+        "paragraph_9@how_to_play_common.paragraph": {
+          "$text": "set_hud.paid_warning"
+        }
+      },
+      {
+        "paragraph_10@how_to_play_common.paragraph": {
+          "$text": "set_hud.thanks"
+        }
+      },
+      {
+        "paragraph_11@how_to_play_common.paragraph": {
+          "$text": "set_hud.tips"
+        }
+      },
+      { "padding_computer@how_to_play_common.padding": {} },
+      {
+        "header_computer@how_to_play_common.header": {
+          "$text": "set_hud.computer_mode"
+        }
+      },
+      {
+        "computer_1@how_to_play_common.paragraph": {
+          "$text": "set_hud.computer_mode_intro"
+        }
+      },
+      {
+        "computer_2@how_to_play_common.paragraph": {
+          "$text": "set_hud.computer_mode_after"
+        }
+      },
+      {
+        "computer_3@how_to_play_common.paragraph": {
+          "$text": "set_hud.computer_mode_demo"
+        }
+      },
+      { "small_padding_1@how_to_play_common.small_padding": {} },
+      {
+        "computer_4@how_to_play_common.paragraph": {
+          "$text": "set_hud.step_1"
+        }
+      },
+      {
+        "pause_image": {
+          "type": "image",
+          "size": [ "100%", 32 ],
+          "texture": "textures/pause_image"
+        }
+      },
+      { "small_padding_2@how_to_play_common.small_padding": {} },
+      {
+        "computer_5@how_to_play_common.paragraph": {
+          "$text": "set_hud.step_2"
+        }
+      },
+      {
+        "computer_image": {
+          "type": "image",
+          "size": [ "100%", 32 ],
+          "texture": "textures/computer_image"
+        }
+      },
+      { "small_padding_3@how_to_play_common.small_padding": {} },
+      {
+        "computer_6@how_to_play_common.paragraph": {
+          "$text": "set_hud.step_3"
+        }
+      },
+      {
+        "close_image": {
+          "type": "image",
+          "size": [ "100%", 32 ],
+          "texture": "textures/close_image"
+        }
+      },
+      { "padding_2@how_to_play_common.padding": {} },
+      {
+        "header_2@how_to_play_common.header": {
+          "$text": "set_hud.faq"
+        }
+      },
+      {
+        "paragraph_12@how_to_play_common.paragraph": {
+          "$text": "set_hud.faq_1_q"
+        }
+      },
+      {
+        "paragraph_13@how_to_play_common.paragraph": {
+          "$text": "set_hud.faq_1_a"
+        }
+      },
+      {
+        "paragraph_14@how_to_play_common.paragraph": {
+          "$text": "set_hud.faq_2_q"
+        }
+      },
+      {
+        "paragraph_15@how_to_play_common.paragraph": {
+          "$text": "set_hud.faq_2_a"
+        }
+      },
+      {
+        "paragraph_16@how_to_play_common.paragraph": {
+          "$text": "set_hud.faq_3_q"
+        }
+      },
+      {
+        "paragraph_17@how_to_play_common.paragraph": {
+          "$text": "set_hud.faq_3_a"
+        }
+      },
+      {
+        "paragraph_18b@how_to_play_common.paragraph": {
+          "$text": "set_hud.faq_5_q"
+        }
+      },
+      {
+        "paragraph_19b@how_to_play_common.paragraph": {
+          "$text": "set_hud.faq_5_a"
+        }
+      },
+      { "padding_3@how_to_play_common.padding": {} },
+      {
+        "header_3@how_to_play_common.header": {
+          "$text": "set_hud.license"
+        }
+      },
+      {
+        "paragraph_21@how_to_play_common.paragraph": {
+          "$text": "set_hud.license_intro"
+        }
+      },
+      {
+        "paragraph_22@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_1"
+        }
+      },
+      {
+        "paragraph_23@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_1_1"
+        }
+      },
+      {
+        "paragraph_24@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_1_2"
+        }
+      },
+      {
+        "paragraph_25@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_2"
+        }
+      },
+      {
+        "paragraph_26@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_2_1"
+        }
+      },
+      {
+        "paragraph_27@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_2_2"
+        }
+      },
+      {
+        "paragraph_28@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_2_3"
+        }
+      },
+      {
+        "paragraph_29@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_3"
+        }
+      },
+      {
+        "paragraph_30@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_3_1"
+        }
+      },
+      {
+        "paragraph_31@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_3_2"
+        }
+      },
+      {
+        "paragraph_32@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_3_3"
+        }
+      },
+      {
+        "paragraph_33@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_4"
+        }
+      },
+      {
+        "paragraph_34@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_4_1"
+        }
+      },
+      {
+        "paragraph_35@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_4_2"
+        }
+      },
+      {
+        "paragraph_36@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_4_3"
+        }
+      },
+      {
+        "paragraph_37@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_4_4"
+        }
+      },
+      {
+        "paragraph_38@how_to_play_common.paragraph": {
+          "$text": "set_hud.section_4_5"
+        }
+      }
+    ]
+  },
+  
+  //引用
+  "set_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "arrow_binding@arrow_binding": {}
+      },
+      {
+        "new_hud_player_panel@new_hud_player_panel": {}
+      },
+      {
+        "gamma_image_panel@gamma_image_panel": {}
+      },
+      {
+        "hud_cross_panel@hud_cross_panel": {}
+      },
+      {
+        "name_text_label_panel@name_text_label_panel": {}
+      },
+      {
+        "clock_compass_panel@set_hud.clock_compass_panel": {}
+      },
+      {
+        "name_text_label_panel_and_language_panel@name_text_label_panel_and_language_panel": {}
+      },
+      {
+        "hide_zhi_button@set_hud.hide_zhi_button": {}
+      }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hud_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      },
+      {
+        "binding_name": "#hud_alpha",
+        "binding_name_override": "#alpha",
+        "binding_type": "global"
+      },
+      {
+        "binding_name": "#hud_propagate_alpha",
+        "binding_name_override": "#propagateAlpha",
+        "binding_type": "global"
+      }
+    ]
+  },
+  
+  "main_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "mobile_array_panel@mobile_array_panel": {}
+      },
+      {
+        "not_mobile_array_panel@not_mobile_array_panel": {}
+      },
+      {
+        "set_panel@set_panel": {}
+      },
+      {
+        "nothing_toggle@nothing_toggle": {}
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "selector_stack_panel/controls_and_settings_selector_pane": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": {
+          "info_button@set_hud.info_button": {}
+        }
+      }
+    ]
+  },
+
+  "section_content_panels/general_and_controls_sections": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": {
+          "info_section@set_hud.info_section": {}
+        }
+      }
+    ]
+  }
+}

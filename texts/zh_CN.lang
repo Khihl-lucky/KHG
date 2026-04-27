@@ -1,0 +1,130 @@
+language.text=语言:§4中文
+
+//==================== 主菜单 ====================
+set_hud.main_button=KHG
+set_hud.category_buttons=按钮类
+set_hud.category_display=显示类
+set_hud.category_gui=GUI类
+set_hud.no_click_me=别戳我<(｀^´)>
+
+//==================== 快捷按钮 ====================
+set_hud.gui_button=GUI按钮
+set_hud.paper_doll_button=纸娃娃按钮
+set_hud.switch_button=切换按钮
+
+//==================== GUI类 ====================
+set_hud.coming_soon=待添加
+
+//==================== 显示类 ====================
+set_hud.crosshair=准星
+set_hud.cursor=光标
+set_hud.screen_render=屏幕渲染
+set_hud.game_items=游戏物品
+set_hud.clock=时钟
+set_hud.compass=指南针
+set_hud.experience_display=经验显示
+set_hud.game_language=游戏语言
+set_hud.durability_display=耐久显示
+set_hud.held_item_display=手持物品显示
+set_hud.better_paper_doll=更好的纸娃娃
+set_hud.paper_doll=纸娃娃
+
+//==================== 准星样式 ====================
+set_hud.no_crosshair=无准星
+set_hud.default_crosshair=默认准星
+set_hud.colorful_crosshair=七彩准星
+set_hud.crosshair_style_1=准星样式 一
+set_hud.crosshair_style_2=准星样式 二
+set_hud.crosshair_style_3=准星样式 三
+set_hud.crosshair_style_4=准星样式 四
+set_hud.crosshair_style_5=准星样式 五
+
+//==================== 光标样式 ====================
+set_hud.no_cursor=无光标
+set_hud.default_cursor=默认光标
+set_hud.black_cursor=黑色光标
+set_hud.blue_cursor=蓝色光标
+set_hud.green_cursor=绿色光标
+set_hud.orange_cursor=橙色光标
+set_hud.pink_cursor=粉色光标
+set_hud.purple_cursor=紫色光标
+set_hud.red_cursor=红色光标
+
+//==================== 屏幕渲染 ====================
+set_hud.no_render=无渲染
+set_hud.bright_render=亮色渲染
+set_hud.dark_render=暗色渲染
+set_hud.blue_render=蓝色渲染
+set_hud.cyan_render=青色渲染
+set_hud.orange_render=橙色渲染
+set_hud.red_render=红色渲染
+set_hud.yellow_render=黄色渲染
+
+//==================== 面板标签 ====================
+set_hud.quick_buttons=快捷按钮
+set_hud.display=显示
+
+//==================== 其他文本 ====================
+set_hud.experience_text=拥有经验:
+set_hud.none=无
+set_hud.left=左
+set_hud.right=右
+
+//==================== 材质信息 ====================
+set_hud.pack_info=材质信息
+set_hud.info=信息
+set_hud.welcome=欢迎使用本材质！
+set_hud.info_details=以下内容是关于本材质的详细信息和注意事项
+set_hud.please_read=请仔细查看，谢谢配合！
+set_hud.introduction=介绍
+set_hud.author=作者：§6Khihl
+set_hud.pack_version=材质版本：§bV3.7.0§d正式版
+set_hud.platform=发布平台：§a苦力怕论坛
+set_hud.intro_video=介绍视频可在B站搜KHG或搜作者Khihl查看
+set_hud.free_pack=本材质作为作者的第一个材质，在论坛上无偿发布
+set_hud.paid_warning=如果您是付费获得的KHG，那么很遗憾您被骗了
+set_hud.thanks=感谢您的使用，祝您体验愉快！
+set_hud.tips=§ctips:在您使用本材质时，将默认为您已阅读并同意用户使用协议.
+
+//==================== 电脑模式 ====================
+set_hud.computer_mode=电脑模式
+set_hud.pause_computer_mode=KHG电脑模式
+set_hud.pause_return=返回
+set_hud.computer_mode_intro=在材质的V3.5.9测试版本中，新加入了电脑模式
+set_hud.computer_mode_after=在此之后，电脑用户便可以开始正常使用KHG材质了
+set_hud.computer_mode_demo=以下是开启电脑模式的示范
+set_hud.step_1=第一步，在游戏中打开暂停界面
+set_hud.step_2=第二步，点击左上方的"KHG电脑模式"按钮，便可进入电脑模式
+set_hud.step_3=若想退出，点击左上方的返回按钮即可.
+
+//==================== 使用疑问（FAQ） ====================
+set_hud.faq=使用疑问
+set_hud.faq_1_q=问：在按下GUI按钮后，所有的操作界面都被隐藏了，并且再次点击GUI按钮隐藏前所在的地方却无任何反应，如何恢复原界面？
+set_hud.faq_1_a=§b答：请前往设置-视频，把隐藏HUD和隐藏手选项关闭，即可恢复原状。作者已在KHG V3.5.9测试版中修复此bug，若您的材质仍为旧版，请将KHG升级至V3.5.9或以上版本.
+set_hud.faq_2_q=问：为什么在KHG V3.0正式版去除的功能仍未加回？
+set_hud.faq_2_a=§b答：当时去除这些功能是为了材质的兼容性，而现在这些功能计划在4.0系列版本的更新中逐一加回，并且将对它们进行升级，请耐心等待V4.0正式版更新.
+set_hud.faq_3_q=问：为什么KHG按钮无法点击？
+set_hud.faq_3_a=§b答：这种情况可能是你的游戏为1.19.50以下版本，并且开启了新触控(也就是摇杆)模式，这种情况下HUD界面的KHG将无法点击，解决办法：1.使用电脑模式；2.将游戏升至1.19.50或以上版本；3.关闭新触控模式.
+set_hud.faq_5_q=问：在重进世界或切换维度时，调好的KHG功能会被重置，能否解决这个问题？
+set_hud.faq_5_a=§b答：抱歉，此bug属于基岩版特性，暂时无法被解决，请谅解.
+
+//==================== 用户使用协议 ====================
+set_hud.license=用户使用协议
+set_hud.license_intro=本协议是您与KHG（以下简称"KHG资源包"）之间就使用KHG资源包所达成的协议。
+set_hud.section_1=一、适用范围
+set_hud.section_1_1=1.1 本协议长期适用于KHG资源包的所有版本。
+set_hud.section_1_2=1.2 本协议遵循GNU通用公共许可证第3版(GPL v3.0)。如需查阅GPL v3.0全文，请自行通过互联网检索获取。
+set_hud.section_2=二、主要条款
+set_hud.section_2_1=2.1 用户下载、安装或使用本资源包，即视为已同意本协议的全部内容。
+set_hud.section_2_2=2.2 如您未满十八周岁，请在监护人的陪同下阅读本协议。
+set_hud.section_2_3=2.3 本协议的最终解释权归作者所有。
+set_hud.section_3=三、一般规定
+set_hud.section_3_1=3.1 用户有权在遵守本协议的前提下使用本资源包，并可制作与资源包相关的音频、视频等媒体文件。
+set_hud.section_3_2=3.2 严禁将本资源包用于任何商业目的，包括但不限于转让、销售或其它任何形式的商业利用。
+set_hud.section_3_3=3.3 允许对资源包内的任何源代码或媒体文件进行修改、引用、衍生等操作，但必须在显著位置标注其原始出处。
+set_hud.section_4=四、转载规定
+set_hud.section_4_1=4.1 允许在未经作者事先授权的情况下转载本资源包的任意版本。
+set_hud.section_4_2=4.2 转载时必须明确标注原作者信息。
+set_hud.section_4_3=4.3 转载方不得声称本资源包为您本人所有。
+set_hud.section_4_4=4.4 未经作者授权的转载须标注为"转载"；经作者明确许可的转载，可标注为"授权转载"。
+set_hud.section_4_5=4.5 转载时，可对资源包介绍内容进行重新排版，但不得使用任何违法或不当的敏感词汇。

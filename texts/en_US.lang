@@ -1,0 +1,130 @@
+language.text=Language:§6English
+
+//==================== Main Menu ====================
+set_hud.main_button=KHG
+set_hud.category_buttons=Buttons
+set_hud.category_display=Display
+set_hud.category_gui=GUI
+set_hud.no_click_me=Don't Click Me<(｀^´)>
+
+//==================== Quick Buttons ====================
+set_hud.gui_button=GUI Button
+set_hud.paper_doll_button=Paper Doll Button
+set_hud.switch_button=Switch Button
+
+//==================== GUI ====================
+set_hud.coming_soon=Coming Soon
+
+//==================== Display ====================
+set_hud.crosshair=Crosshair
+set_hud.cursor=Cursor
+set_hud.screen_render=Screen Render
+set_hud.game_items=Game Items
+set_hud.clock=Clock
+set_hud.compass=Compass
+set_hud.experience_display=EXP Display
+set_hud.game_language=Game Language
+set_hud.durability_display=Durability Display
+set_hud.held_item_display=Held Item Display
+set_hud.better_paper_doll=Better Paper Doll
+set_hud.paper_doll=Paper Doll
+
+//==================== Crosshair Styles ====================
+set_hud.no_crosshair=No Crosshair
+set_hud.default_crosshair=Default Crosshair
+set_hud.colorful_crosshair=Colorful Crosshair
+set_hud.crosshair_style_1=Crosshair Style 1
+set_hud.crosshair_style_2=Crosshair Style 2
+set_hud.crosshair_style_3=Crosshair Style 3
+set_hud.crosshair_style_4=Crosshair Style 4
+set_hud.crosshair_style_5=Crosshair Style 5
+
+//==================== Cursor Styles ====================
+set_hud.no_cursor=No Cursor
+set_hud.default_cursor=Default Cursor
+set_hud.black_cursor=Black Cursor
+set_hud.blue_cursor=Blue Cursor
+set_hud.green_cursor=Green Cursor
+set_hud.orange_cursor=Orange Cursor
+set_hud.pink_cursor=Pink Cursor
+set_hud.purple_cursor=Purple Cursor
+set_hud.red_cursor=Red Cursor
+
+//==================== Screen Render ====================
+set_hud.no_render=No Render
+set_hud.bright_render=Bright Render
+set_hud.dark_render=Dark Render
+set_hud.blue_render=Blue Render
+set_hud.cyan_render=Cyan Render
+set_hud.orange_render=Orange Render
+set_hud.red_render=Red Render
+set_hud.yellow_render=Yellow Render
+
+//==================== Panel Labels ====================
+set_hud.quick_buttons=Quick Buttons
+set_hud.display=Display
+
+//==================== Misc Text ====================
+set_hud.experience_text=EXP:
+set_hud.none=None
+set_hud.left=Left
+set_hud.right=Right
+
+//==================== Pack Info ====================
+set_hud.pack_info=Pack Info
+set_hud.info=Info
+set_hud.welcome=Welcome to this texture pack!
+set_hud.info_details=The following is detailed information and notes about this pack
+set_hud.please_read=Please read carefully, thank you!
+set_hud.introduction=Introduction
+set_hud.author=Author: §6Khihl
+set_hud.pack_version=Pack Version: §bV3.7.0§dOfficial
+set_hud.platform=Platform: §aCreeper Forum
+set_hud.intro_video=Introduction video can be found on Bilibili by searching KHG or Khihl
+set_hud.free_pack=This pack is the author's first pack, released for free on the forum
+set_hud.paid_warning=If you paid for KHG, unfortunately you have been scammed
+set_hud.thanks=Thank you for using, enjoy your experience!
+set_hud.tips=§cTips: By using this pack, you acknowledge that you have read and agreed to the User Agreement.
+
+//==================== Computer Mode ====================
+set_hud.computer_mode=Computer Mode
+set_hud.pause_computer_mode=KHG Computer Mode
+set_hud.pause_return=Return
+set_hud.computer_mode_intro=In the V3.5.9 beta version, a new Computer Mode was added
+set_hud.computer_mode_after=After this, computer users can start using KHG normally
+set_hud.computer_mode_demo=Here's how to enable Computer Mode
+set_hud.step_1=Step 1: Open the pause menu in-game
+set_hud.step_2=Step 2: Click the "KHG Computer Mode" button at the top left to enter Computer Mode
+set_hud.step_3=To exit, click the return button at the top left.
+
+//==================== FAQ ====================
+set_hud.faq=FAQ
+set_hud.faq_1_q=Q: After pressing the GUI button, all UI elements are hidden, and clicking the GUI button again where it was hidden does nothing. How do I restore the original UI?
+set_hud.faq_1_a=§bA: Go to Settings - Video, turn off "Hide HUD" and "Hide Hand" options to restore. The author has fixed this bug in KHG V3.5.9 beta. If your pack is still an older version, please update KHG to V3.5.9 or above.
+set_hud.faq_2_q=Q: Why haven't the features removed in KHG V3.0 been added back?
+set_hud.faq_2_a=§bA: Those features were removed for compatibility reasons. They are planned to be gradually added back in the V4.0 series updates with improvements. Please wait patiently for the V4.0 official release.
+set_hud.faq_3_q=Q: Why can't the KHG button be clicked?
+set_hud.faq_3_a=§bA: This may happen if your game is below version 1.19.50 and you have the new touch (joystick) mode enabled. In this case, the KHG button on the HUD cannot be clicked. Solutions: 1. Use Computer Mode; 2. Update your game to 1.19.50 or above; 3. Disable the new touch mode.
+set_hud.faq_5_q=Q: When rejoining a world or switching dimensions, the KHG settings are reset. Can this be fixed?
+set_hud.faq_5_a=§bA: Sorry, this bug is a Bedrock Edition feature and currently cannot be fixed. Please understand.
+
+//==================== User Agreement ====================
+set_hud.license=User Agreement
+set_hud.license_intro=This Agreement is entered into by and between you and KHG (hereinafter referred to as the "KHG Resource Pack").
+set_hud.section_1=1. Scope of Application
+set_hud.section_1_1=1.1 This Agreement applies to all versions of the KHG Resource Pack, for an indefinite period.
+set_hud.section_1_2=1.2 This Agreement is governed by the GNU General Public License version 3 (GPL v3.0). Please refer to the Internet for the full text of the GPL v3.0 license.
+set_hud.section_2=2. Principal Provisions
+set_hud.section_2_1=2.1 By downloading, installing, or using the Resource Pack, you acknowledge that you have read and agreed to be bound by this Agreement.
+set_hud.section_2_2=2.2 If you are a minor (under the age of 18), please read this Agreement under the supervision of a guardian.
+set_hud.section_2_3=2.3 The author reserves the right of final interpretation of this Agreement.
+set_hud.section_3=3. General Provisions
+set_hud.section_3_1=3.1 You have the right to use the Resource Pack and create audio-visual or other media content related to it, provided you comply with this Agreement.
+set_hud.section_3_2=3.2 Any commercial use, including but not limited to transfer, sale, or any other form of commercial exploitation, is strictly prohibited.
+set_hud.section_3_3=3.3 You may modify, quote, or create derivative works based on any source code or media files within the Resource Pack, provided that the original source is clearly indicated in a prominent location.
+set_hud.section_4=4. Redistribution Provisions
+set_hud.section_4_1=4.1 Redistribution of any version of the Resource Pack is permitted without the prior consent of the author.
+set_hud.section_4_2=4.2 Redistribution must clearly credit the original author.
+set_hud.section_4_3=4.3 You may not claim the resource pack as your own work.
+set_hud.section_4_4=4.4 Redistribution conducted without the author's consent must be marked as "Reprinted"; redistribution with the author's explicit consent may be marked as "Authorized Reprint".
+set_hud.section_4_5=4.5 You may reformat the description of the resource pack when redistributing it, provided that no inappropriate or sensitive language is used.

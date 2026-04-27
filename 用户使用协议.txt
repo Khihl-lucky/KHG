@@ -1,0 +1,58 @@
+**用户协议 / User Agreement**
+
+**// 中文 / Chinese //**
+
+本协议是您与 KHG（以下简称“KHG 资源包”）之间就使用 KHG 资源包所达成的协议。
+
+**一、适用范围**
+1.1 本协议长期适用于 KHG 资源包的所有版本。
+1.2 本协议遵循 GNU 通用公共许可证第 3 版（GPL v3.0）。如需查阅 GPL v3.0 全文，请自行通过互联网检索获取。
+
+**二、主要条款**
+2.1 用户下载、安装或使用本资源包，即视为已同意本协议的全部内容。
+2.2 如您未满十八周岁，请在监护人的陪同下阅读本协议。
+2.3 本协议的最终解释权归作者所有。
+
+**三、一般规定**
+3.1 用户有权在遵守本协议的前提下使用本资源包，并可制作与资源包相关的音频、视频等媒体文件。
+3.2 严禁将本资源包用于任何商业目的，包括但不限于转让、销售或其它任何形式的商业利用。
+3.3 允许对资源包内的任何源代码或媒体文件进行修改、引用、衍生等操作，但必须在显著位置标注其原始出处。
+
+**四、转载规定**
+4.1 允许在未经作者事先授权的情况下转载本资源包的任意版本。
+4.2 转载时必须明确标注原作者信息。
+4.3 转载方不得声称本资源包为您本人所有。
+4.4 未经作者授权的转载须标注为“转载”；经作者明确许可的转载，可标注为“授权转载”。
+4.5 转载时，可对资源包介绍内容进行重新排版，但不得使用任何违法或不当的敏感词汇。
+
+---
+
+**// 英文 / English //**
+
+This Agreement is entered into by and between you and KHG (hereinafter referred to as the "KHG Resource Pack"). In the event of any discrepancy, the Chinese version shall prevail.
+
+**1. Scope of Application**
+1.1 This Agreement applies to all versions of the KHG Resource Pack, for an indefinite period.
+1.2 This Agreement is governed by the GNU General Public License version 3 (GPL v3.0). Please refer to the Internet for the full text of the GPL v3.0 license.
+
+**2. Principal Provisions**
+2.1 By downloading, installing, or using the Resource Pack, you acknowledge that you have read and agreed to be bound by this Agreement.
+2.2 If you are a minor (under the age of 18), please read this Agreement under the supervision of a guardian.
+2.3 The author reserves the right of final interpretation of this Agreement.
+
+**3. General Provisions**
+3.1 You have the right to use the Resource Pack and create audio-visual or other media content related to it, provided you comply with this Agreement.
+3.2 Any commercial use, including but not limited to transfer, sale, or any other form of commercial exploitation, is strictly prohibited.
+3.3 You may modify, quote, or create derivative works based on any source code or media files within the Resource Pack, provided that the original source is clearly indicated in a prominent location.
+
+**4. Redistribution Provisions**
+4.1 Redistribution of any version of the Resource Pack is permitted without the prior consent of the author.
+4.2 Redistribution must clearly credit the original author.
+4.3 You may not claim the resource pack as your own work.
+4.4 Redistribution conducted without the author’s consent must be marked as "Reprinted"; redistribution with the author’s explicit consent may be marked as "Authorized Reprint".
+4.5 You may reformat the description of the resource pack when redistributing it, provided that no inappropriate or sensitive language is used.
+
+---
+
+**协议版本 / Agreement Version:** V1.1  
+**协议更新时间 / Agreement Date:** 2022-10-14 (第二版 / Second Edition)
