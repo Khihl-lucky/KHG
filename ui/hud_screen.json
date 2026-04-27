@@ -49,7 +49,7 @@
             "main_panel@set_hud.main_panel": {}
           },
           {
-            "hide_gui_button@set_hud.hide_gui_button": {}
+            "gui_button_panel@set_hud.gui_button_panel": {}
           }
         ]
       }

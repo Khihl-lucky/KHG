@@ -396,11 +396,6 @@
       {
         "binding_name": "#level_number",
         "binding_type": "global"
-      },
-      {
-        "binding_name": "#level_number_visible",
-        "binding_type": "global",
-        "binding_name_override": "#visible"
       }
     ]
   },
@@ -413,7 +408,7 @@
   "progress_text_label_panel": {
     "type": "stack_panel",
     "orientation": "horizontal",
-    "size": [ "100%", 10 ],
+    "size": [ "default", "default" ],
     "controls": [      
       {
         "text_progress@text_progress": {}
@@ -492,18 +487,27 @@
       }
     ]
   },
+
+  "no_text": {
+    "type": "label",
+    "text": "   "
+  },
   
   "name_text_label_panel_and_language_panel": {
     "type": "stack_panel",
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "offset": [ "20%", "7%" ],
-    "size": [ "100%", "100%" ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "offset": [ "-15%", 0 ],
+    "size": [ "default", "default" ],
+    "orientation": "horizontal",
     "$hotbar_collection_name": "hotbar_items",
     "collection_name": "$hotbar_collection_name",
     "controls": [      
       {
         "language_text@language_text": {}
+      },
+      {
+        "no_text@no_text": {}
       },
       {
         "progress_text_label_panel@progress_text_label_panel": {}
@@ -604,6 +608,7 @@
   "zhi_button_layout@hud_button_layout_template": { "$button_texture": "textures/KHG/button/zhi_button" },
     
     "zhi_button@common.button": {
+    "$pressed_button_name": "button.hide_paperdoll_hud",
     "controls": [
       {
         "default@zhi_button_layout": {}
@@ -618,25 +623,13 @@
   },
   
   "hide_zhi_button@zhi_button": {
-    "$pressed_button_name": "button.hide_paperdoll_hud",
-    "anchor_from": "top_right",
-    "anchor_to": "top_right",
-    "offset": [ "-30%", 0 ],
-    "draggable": "both",
-    "size": [ 17, 17 ],
-    "bindings": [
-      {
-        "binding_type": "view",
-        "source_control_name": "zhi_button_toggle",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ]
+    "size": [ "100%", "100%" ]
   },
   
   "gui_button_layout@hud_button_layout_template": { "$button_texture": "textures/KHG/button/gui_button" },
     
     "gui_button@common.button": {
+    "$pressed_button_name": "button.hide_gui_all",
     "controls": [
       {
         "default@gui_button_layout": {}
@@ -651,27 +644,13 @@
   },
   
   "hide_gui_button@gui_button": {
-    "$pressed_button_name": "button.hide_gui_all",    
-    "size": [ 17, 17 ],
-    "anchor_from": "top_right",
-    "anchor_to": "top_right",    
-    "offset": [ "-35%", 0 ],
-    "draggable": "both",
-    "bindings": [
-      {
-        "binding_type": "view",
-        "source_control_name": "gui_button_toggle",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ]
+    "size": [ "100%", "100%" ]
   },
   
   // === 切换按钮（左右翻页） ===
   "hotbar_switch_button_template@common.button": {
     "size": [ "100%", "100%" ],
     "layer": 100,
-    "$pressed_button_name": "$switch_pressed_name",
     "controls": [
       { "default": { "type": "image", "texture": "$switch_default_tex" } },
       { "hover": { "type": "image", "texture": "$switch_hover_tex" } },
@@ -695,11 +674,48 @@
       }
     ]
   },
+
+  // === GUI与纸娃娃按钮面板（input_panel 解决手机端触控） ===
+  "hide_button_panel_template": {
+    "type": "input_panel",
+    "size": [ 23, 23 ],
+    "prevent_touch_input": true,
+    "anchor_from": "$hide_button_anchor_from",
+    "anchor_to": "$hide_button_anchor_to",
+    "offset": "$hide_button_offset",
+    "controls": [
+      { "button@$hide_button_ref": {} }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "$hide_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "zhi_button_panel@hide_button_panel_template": {
+    "$hide_button_ref": "hide_zhi_button",
+    "$hide_button_toggle": "zhi_button_toggle",
+    "$hide_button_anchor_from": "top_right",
+    "$hide_button_anchor_to": "top_right",
+    "$hide_button_offset": [ "-30%", 0 ]
+  },
+
+  "gui_button_panel@hide_button_panel_template": {
+    "$hide_button_ref": "hide_gui_button",
+    "$hide_button_toggle": "gui_button_toggle",
+    "$hide_button_anchor_from": "top_right",
+    "$hide_button_anchor_to": "top_right",
+    "$hide_button_offset": [ "-35%", 0 ]
+  },
   
   "left_button@hotbar_switch_button_template": {
     "anchor_from": "top_right",
     "anchor_to": "top_right",
-    "$switch_pressed_name": "button.hotbar_inventory_left",
+    "$pressed_button_name": "button.hotbar_inventory_left",
     "$switch_default_tex": "textures/KHG/button/mq_left_button_default",
     "$switch_hover_tex": "textures/KHG/button/mq_left_button",
     "$switch_pressed_tex": "textures/KHG/button/mq_left_button_hover"
@@ -712,7 +728,7 @@
   "right_button@hotbar_switch_button_template": {
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "$switch_pressed_name": "button.hotbar_inventory_right",
+    "$pressed_button_name": "button.hotbar_inventory_right",
     "$switch_default_tex": "textures/KHG/button/mq_right_button_default",
     "$switch_hover_tex": "textures/KHG/button/mq_right_button",
     "$switch_pressed_tex": "textures/KHG/button/mq_right_button_hover"
@@ -2091,7 +2107,7 @@
         "name_text_label_panel_and_language_panel@name_text_label_panel_and_language_panel": {}
       },
       {
-        "hide_zhi_button@set_hud.hide_zhi_button": {}
+        "zhi_button_panel@set_hud.zhi_button_panel": {}
       }
     ],
     "bindings": [
