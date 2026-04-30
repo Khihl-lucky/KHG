@@ -34,7 +34,7 @@
 
 - 📸 **GUI Quick Button**: One-tap to clear all HUD elements — perfect for clean screenshots and sharing your best moments.
 - 🧑‍🤝‍🧑 **Paper Doll Button**: Quickly toggle the paper doll to check your character's look, no need to dive into settings menus.
-- 🔄 **Toggle Button**: Placed on both sides of the hotbar for convenient on/off switching of display features.
+- 🔄 **Toggle Button**: Placed on both sides of the hotbar for lightning-fast slot switching — a perfect edge for stylish PvP combat.
 
 #### 🖥️ Display
 
@@ -274,7 +274,7 @@ Simply package and download the source files.
 
 - 📸 **GUI 快捷按钮**：一键清屏，隐藏所有 HUD 元素，方便截图分享，记录你的精彩瞬间。
 - 🧑‍🤝‍🧑 **纸娃娃按钮**：快速开关纸娃娃，随时看清自己的模样，操作便捷，无需进入设置菜单。
-- 🔄 **切换按钮**：置于物品栏两侧，方便随时切换各类显示功能的开启/关闭状态。
+- 🔄 **切换按钮**：置于物品栏两侧，实现物品栏极速切换，助力 PvP 花式战斗操作。
 
 #### 🖥️ 显示类
 
