@@ -28,6 +28,7 @@
 
 **KHG Functional Resource Pack** is a powerful auxiliary tool that gives you features in normal gameplay that were previously impossible or required cheats. It is compatible with most UI beautification packs, and button appearances automatically adapt to the UI style. **Supports both mobile and PC!**
 
+<<<<<<< HEAD
 ### 🎯 Feature Details
 
 #### 🔘 Buttons
@@ -47,6 +48,12 @@
 - 🌐 **Game Language**: See your current game language at a glance — no more digging through settings to check.
 - ⚡ **Experience Display**: Shows your XP count even in Creative mode, breaking vanilla's limitation of hiding XP in Creative.
 - 🕐 **Game Items**: Pins the clock and compass directly on your screen — no crafting required, no hotbar slots taken, one-tap toggle, as powerful as a cheat!
+=======
+### 🎯 Two Core Sections
+
+- **Button Panel**: HUD buttons, Paper Doll buttons, Toggle buttons  
+- **Display Panel**: Crosshair, Cursor, Screen Rendering, Handheld Display, Durability Display, Better Paper Doll, Game Language, Experience Display, Compass & Clock Display, etc.
+>>>>>>> e87d5f9f5429c63e0fd11ddaa6096e15ea18a091
 
 | Item | Details |
 |------|------|
